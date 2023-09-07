@@ -7,21 +7,21 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.example.couser.entities.User;
-import com.example.couser.repositories.UseRepository;
+import com.example.couser.entities.Order;
+import com.example.couser.repositories.OrderRepository;
 
 @Service
-public class UserService {
+public class OrderService {
 
 	@Autowired
-	private UseRepository useRepository;
+	private OrderRepository orderRepository;
 
-	public List<User> findAll() {
-		return useRepository.findAll();
+	public List<Order> findAll() {
+		return orderRepository.findAll();
 	}
 
-	public ResponseEntity<User> findBy(Long id) {
-		return useRepository.findById(id).map(x -> ResponseEntity.ok(x))
+	public ResponseEntity<Order> findBy(Long id) {
+		return orderRepository.findById(id).map(x -> ResponseEntity.ok(x))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 

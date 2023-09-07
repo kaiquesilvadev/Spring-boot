@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.couser.config.services.UserService;
-import com.example.couser.entities.User;
+import com.example.couser.config.services.OrderService;
+import com.example.couser.entities.Order;
 
 @RestController
-@RequestMapping("/users")
-public class UserResource {
+@RequestMapping("/ordes")
+public class OrderResource {
 
 	@Autowired
-	private UserService userService;
+	private OrderService orderService;
 
 	@GetMapping
-	public ResponseEntity<List<User>> findAll() {
-		List<User> user = new UserService().findAll();
-		return ResponseEntity.ok().body(user);
+	public ResponseEntity<List<Order>> findAll() {
+		List<Order> order = new OrderService().findAll();
+		return ResponseEntity.ok().body(order);
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<User> findBy(@PathVariable Long id) {
-		return userService.findBy(id);
+	public ResponseEntity<Order> findBy(@PathVariable Long id) {
+		return orderService.findBy(id);
 	}
 }
