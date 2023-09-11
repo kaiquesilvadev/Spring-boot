@@ -24,5 +24,8 @@ public class UserService {
 		return useRepository.findById(id).map(x -> ResponseEntity.ok(x))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
-
+	
+	public User insert(User user) {
+		return useRepository.save(user);
+	}
 }

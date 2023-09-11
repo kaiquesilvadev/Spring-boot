@@ -25,4 +25,7 @@ public class ProductService {
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 
+	public Product insert(Product  product) {
+		return productRepository.save(product);
+	}
 }
