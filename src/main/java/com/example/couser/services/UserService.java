@@ -1,4 +1,4 @@
-package com.example.couser.config.services;
+package com.example.couser.services;
 
 import java.util.List;
 
@@ -27,5 +27,9 @@ public class UserService {
 	
 	public User insert(User user) {
 		return useRepository.save(user);
+	}
+	
+	public void delete(Long id) {
+		useRepository.deleteById(id);
 	}
 }

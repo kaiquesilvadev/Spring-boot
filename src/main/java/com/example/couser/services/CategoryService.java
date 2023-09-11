@@ -1,4 +1,4 @@
-package com.example.couser.config.services;
+package com.example.couser.services;
 
 import java.util.List;
 
@@ -27,5 +27,9 @@ public class CategoryService {
 
 	public Category insert(Category  category) {
 		return categoryRepository.save(category);
+	}
+	
+	public void delete(Long id) {
+		categoryRepository.deleteById(id);
 	}
 }

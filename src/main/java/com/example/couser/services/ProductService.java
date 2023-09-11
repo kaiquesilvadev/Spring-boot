@@ -1,4 +1,4 @@
-package com.example.couser.config.services;
+package com.example.couser.services;
 
 import java.util.List;
 
@@ -27,5 +27,9 @@ public class ProductService {
 
 	public Product insert(Product  product) {
 		return productRepository.save(product);
+	}
+	
+	public void delete(Long id) {
+		productRepository.deleteById(id);
 	}
 }
