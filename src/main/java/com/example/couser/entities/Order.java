@@ -2,7 +2,10 @@ package com.example.couser.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import com.example.couser.entities.enums.OrderStatus;
@@ -67,5 +70,10 @@ public class Order implements Serializable {
 	public void setOrderStatus(OrderStatus orderStatus) {
 		if(orderStatus != null)
 		this.orderStatus = orderStatus.getCode();
+	}
+	
+	public Double getTotal() {
+		List<OrderItem> items = new ArrayList<>();
+		return  items.stream().mapToDouble(OrderItem::getSubTotal).sum();
 	}
 }
