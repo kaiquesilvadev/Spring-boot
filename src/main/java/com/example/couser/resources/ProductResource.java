@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -28,7 +29,7 @@ public class ProductResource {
 
 	@Autowired
 	private ProductService productService;
-	
+
 	@Autowired
 	private ProductRepository productRepository;
 
@@ -42,23 +43,30 @@ public class ProductResource {
 	public ResponseEntity<Product> findBy(@PathVariable Long id) {
 		return productService.findBy(id);
 	}
-	
+
 	@PostMapping
 	public ResponseEntity<Product> insert(@RequestBody Product product) {
 		product = productService.insert(product);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(product.getId()).toUri();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(product.getId())
+				.toUri();
 		return ResponseEntity.created(uri).body(product);
 	}
-	
 
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		Optional<Product> findById = productRepository.findById(id);
-		
-		if(findById.isPresent()) {
+
+		if (findById.isPresent()) {
 			productService.delete(id);
 		}
 		throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+	}
+
+	@PutMapping("/{id}")
+	public ResponseEntity<Product> update(@RequestBody Product product) {
+		return productRepository.findById(product.getId())
+				.map(x -> ResponseEntity.status(HttpStatus.CREATED).body(productService.update(product)))
+				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 }

@@ -24,12 +24,16 @@ public class OrderService {
 		return orderRepository.findById(id).map(x -> ResponseEntity.ok(x))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
-	
-	public Order insert(Order  order) {
+
+	public Order insert(Order order) {
 		return orderRepository.save(order);
 	}
-	
+
 	public void delete(Long id) {
 		orderRepository.deleteById(id);
+	}
+
+	public Order update(Order order) {
+		return orderRepository.save(order);
 	}
 }

@@ -25,11 +25,15 @@ public class ProductService {
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 
-	public Product insert(Product  product) {
+	public Product insert(Product product) {
 		return productRepository.save(product);
 	}
-	
+
 	public void delete(Long id) {
 		productRepository.deleteById(id);
+	}
+
+	public Product update(Product product) {
+		return productRepository.save(product);
 	}
 }

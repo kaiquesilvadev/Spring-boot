@@ -25,11 +25,15 @@ public class CategoryService {
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 
-	public Category insert(Category  category) {
+	public Category insert(Category category) {
 		return categoryRepository.save(category);
 	}
-	
+
 	public void delete(Long id) {
 		categoryRepository.deleteById(id);
+	}
+
+	public Category update(Category category) {
+		return categoryRepository.save(category);
 	}
 }
