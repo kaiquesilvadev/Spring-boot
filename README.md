@@ -6,6 +6,10 @@ Este projeto é parte de um workshop para aprimorar os conhecimentos em Java com
 
 ![UML](https://github.com/kaiquesilvadev/workshop-springboot3-jpa/blob/main/Captura%20de%20tela%202023-09-11%20211621.png)
 
+## Camadas do Projeto 
+
+![Camadas do Projeto ]([https://github.com/kaiquesilvadev/workshop-springboot3-jpa/blob/main/Captura%20de%20tela%202023-09-11%20211621.png](https://github.com/kaiquesilvadev/workshop-springboot3-jpa/blob/main/Captura%20de%20tela%202023-09-11%20211647.png))
+
 ## Requisitos
 
 - Java 8 ou superior
@@ -26,7 +30,7 @@ Este projeto é parte de um workshop para aprimorar os conhecimentos em Java com
 
 3. Execute o aplicativo Spring Boot:
 
--./mvnw spring-boot:run
+- ./mvnw spring-boot:run
 
 
 ## Contribuições
