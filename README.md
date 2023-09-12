@@ -4,7 +4,7 @@ Este projeto é parte de um workshop para aprimorar os conhecimentos em Java com
 
 ## Diagrama de Classes
 
-[https://github.com/kaiquesilvadev/workshop-springboot3-jpa/blob/main/Captura%20de%20tela%202023-09-11%20211621.png]
+![UML](https://github.com/kaiquesilvadev/workshop-springboot3-jpa/blob/main/Captura%20de%20tela%202023-09-11%20211621.png)
 
 ## Requisitos
 
